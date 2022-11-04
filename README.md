@@ -32,4 +32,21 @@ C:\tools\php74\php.exe
 > ./GetStringBetweenByIndex.ps1 -Value "Hello World" -Start "He" -End "ld"
 ello Wor
 ``` 
-   
+
+- [ConvertGitLogToJson.ps1](./ConvertGitLogToJson.ps1) - Convert the output of git log command in JSON
+```powershell
+# Example: 
+> ./ConvertGitLogToJson.ps1 -NumberOfCommits 1
+[
+  {
+    "commit": "f9f320eeea4c4329896a785f083c04279526064f",
+    "tree": "4841da995b423e1d748ccfd908976070e435f254",  
+    "parent": "f78937b304446b504a0ad9ea101d995193431528",
+    "refs": "HEAD -> main, origin/main, origin/HEAD",    
+    "subject": "Update README.md",
+    "body": "",
+    "author": "Fabrício Pinto Ferreira",
+    "commiter": "GitHub"
+  }
+]
+``` 
