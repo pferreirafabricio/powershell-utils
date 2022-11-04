@@ -50,3 +50,10 @@ ello Wor
   }
 ]
 ``` 
+
+- [GetIfStringIsInArray.ps1](./GetIfStringIsInArray.ps1) - Verify if the string contains any other strings presents in the array
+```powershell
+# Example: 
+> ./GetIfStringIsInArray.ps1 -ArraySet @('work', 'paper') -StringToVerify "I work in a paper company"
+True
+``` 
