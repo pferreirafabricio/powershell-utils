@@ -1,11 +1,31 @@
-$originalString = "Hello world"
+param(
+    [Parameter(Mandatory = $True)]
+    [string]$Value,
+    [Parameter(Mandatory = $True)]
+    [string]$Start,
+    [Parameter(Mandatory = $True)]
+    [string]$End
+)
 
-$firstIndex = $originalString.IndexOf('H')
-$lastIndex = $originalString.IndexOf('o')
+$firstIndex = $Value.IndexOf($Start)
+$lastIndex = $Value.LastIndexOf($End)
 
+if ($firstIndex -eq -1) {
+	Write-Host "Start string $Start not found in $Value"
+	return
+}
+
+if ($lastIndex -eq -1) {
+	Write-Host "End string $End not found in $Value"
+	return
+}
+
+# If you want to include the $Start string in the result, just remove the + 1
 $startIndex = $firstIndex + 1
-$length = ($lastIndex - $firstIndex) - 1;
 
-$finalString = $originalString.Substring($startIndex, $length)
+# If you want to include the $End string in the result, just add + 1
+$length = ($lastIndex - $firstIndex) - 1
 
-Write-Host $finalString # returns 'ell'
+$finalString = $Value.Substring($startIndex, $length)
+
+Write-Host $finalString
