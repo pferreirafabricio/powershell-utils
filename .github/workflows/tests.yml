@@ -8,19 +8,25 @@ on:
     
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: pwsh
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        shell: [pwsh, powershell]
+        exclude:
+          - os: ubuntu-latest
+            shell: powershell
+          - os: macos-latest
+            shell: powershell
     steps:
-      - name: Unit tests
-        id: unit_tests
+      - name: Run Pester Tests
+        id: pester
         uses: zyborg/pester-tests-report@v1
         with:
-          include_paths: tests
-          report_name: unit_tests
-          report_title: Unit tests
-    
-      - name: Dump test results
-        shell: pwsh
-        run: |
-          Write-Host 'Total Tests Executed...:  ${{ steps.test_module.outputs.total_count }}'
-          Write-Host 'Total Tests PASSED.....:  ${{ steps.test_module.outputs.passed_count }}'
-          Write-Host 'Total Tests FAILED.....:  ${{ steps.test_module.outputs.failed_count }}'
+          report_name: TestResults_${{ runner.os }}_${{ matrix.shell }}
+          tests_fail_step: true
+          coverage_report_name: CoverageResults_${{ runner.os }}_${{ matrix.shell }}
