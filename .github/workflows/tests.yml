@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Run Pester Tests
         run: |
+          pwd
+          Get-ChildItem "tests"
           Write-host $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
           Set-PSRepository psgallery -InstallationPolicy trusted
           Install-Module -Name Pester -Confirm:$false -Force
