@@ -1,0 +1,26 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unit tests
+        id: unit_tests
+        uses: zyborg/pester-tests-report@v1
+        with:
+          include_paths: tests
+          report_name: unit_tests
+          report_title: Unit tests
+    
+      - name: Dump test results
+        shell: pwsh
+        run: |
+          Write-Host 'Total Tests Executed...:  ${{ steps.test_module.outputs.total_count }}'
+          Write-Host 'Total Tests PASSED.....:  ${{ steps.test_module.outputs.passed_count }}'
+          Write-Host 'Total Tests FAILED.....:  ${{ steps.test_module.outputs.failed_count }}'
