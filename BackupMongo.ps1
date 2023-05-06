@@ -6,7 +6,7 @@ param(
   [string]$databaseName = "",
   [string]$username = "",
   [SecureString]$password,
-  [string]$backupPath = "C:\Backup - CBAG\",
+  [string]$backupPath = "C:\Backup\",
   [bool]$createSystemTask = $true
 )
 
