@@ -9,12 +9,9 @@
 ```
 - [RemoveFileInFolder.ps1](./RemoveFileInFolder.ps1) - Loop through folders and remove a file
 
-
 - [RenameFilesInFolder.ps1](./RenameFilesInFolder.ps1) - Loop through a folder and rename files by creation time
 
-
 - [CreateTask.ps1](./CreateTask.ps1) - Create a system task on Windows
-
 
 - [BackupMongo.ps1](./BackupMongo.ps1) - Make a backup of a MongoDB database
 
@@ -57,3 +54,13 @@ ello Wor
 > ./GetIfStringIsInArray.ps1 -ArraySet @('work', 'paper') -StringToVerify "I work in a paper company"
 True
 ``` 
+
+- [RunApiAndSiteInWT.ps1](./RunApiAndSiteInWT.ps1) - Run an API and Site in a tab of Windows Terminal
+
+- [StartDotnetApi.ps1](./StartDotnetApi.ps1) - Run a Dotnet API
+
+- [StartWebpackSite.ps1](./StartWebpackSite.ps1) - Run a Webpack project (like Vue or React)
+
+- [BuildDotnet.ps1](./BuildDotnet.ps1) - Build a Dotnet API
+
+- [BuildWebpackSite.ps1](./BuildWebpackSite.ps1) - Build a Webpack project (like Vue or React)
