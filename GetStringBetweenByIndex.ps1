@@ -28,4 +28,4 @@ $length = ($lastIndex - $firstIndex) - 1
 
 $finalString = $Value.Substring($startIndex, $length)
 
-Write-Host $finalString
+Write-Output $finalString
