@@ -23,6 +23,8 @@ jobs:
           - os: macos-latest
             shell: powershell
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
       - name: Run Pester Tests
         run: |
           pwd
