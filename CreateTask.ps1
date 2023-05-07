@@ -9,7 +9,7 @@ $taskName = ""
 $taskDescription = ""
 
 function Show-ErrorMessage([string] $message) {
-  Write-Output -Message $message `
+  Write-Host -Message $message `
     -ForegroundColor Red `
     -BackgroundColor White
 }
@@ -19,21 +19,21 @@ function Get-TaskInfo {
   $script:taskName = Read-Host "Please enter the name of the task"
   $script:taskDescription = Read-Host "Please enter the description of the task (optional)"
 
-  Check-Param
+  Get-Param
 }
 
-function Check-Param {
+function Get-Param {
   if ([String]::IsNullOrEmpty($pathScriptToExecute) -or -not ($pathScriptToExecute | Test-Path)  ) {
     Show-ErrorMessage "The script path doesn't exists"
     $script:pathScriptToExecute = Read-Host "Please enter the path to the PowerShell script"
-    Check-Param
+    Get-Param
     return
   }
 
   if ([String]::IsNullOrEmpty($taskName)) {
     Show-ErrorMessage "The name of the task can not be empty"
     $script:taskName = Read-Host "Please enter the username"
-    Check-Param
+    Get-Param
     return;
   }
 }
