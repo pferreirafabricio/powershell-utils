@@ -26,7 +26,7 @@ jobs:
           path: .\
           recurse: true
           output: results.sarif
-          enableExit: false
+          enableExit: true
           severity: '"Error", "Warning"'
 
       # Upload the SARIF file generated in the previous step
