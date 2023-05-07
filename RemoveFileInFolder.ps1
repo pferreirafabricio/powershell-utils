@@ -1,15 +1,20 @@
-[string]$folderPath = './folder'
+param(
+  [Parameter(Mandatory = $true)]
+  [string] $FolderPath,
+  [Parameter(Mandatory = $true)]
+  $FileName
+)
 
-if (-not ($folderPath | Test-Path)  ) {
-  return
+if (-not ($FolderPath | Test-Path)  ) {
+  return $false
 }
 
-Get-ChildItem -Path $folderPath | Foreach-Object {
-  $fileToExclude = $_.FullName + "/some-file.txt"
+$fullPath = Join-Path $FolderPath $FileName;
 
-  if (-not ($fileToExclude | Test-Path)) {
-    return
-  }
-
-  Remove-Item $fileToExclude
+if (-not ($fullPath | Test-Path)  ) {
+  return $false
 }
+
+Remove-Item $fullPath
+
+return $true
