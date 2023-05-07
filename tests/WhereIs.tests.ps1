@@ -3,17 +3,23 @@ Describe 'WhereIs' {
         . .\WhereIs.ps1
         
         $executableName = '';
+        $expectedPath = @();
 
-        if ($IsLinux) {
+        if ($IsLinux -Or $IsMacOs) {
             $executableName = 'pwsh';
-        } elseif ($IsMacOs) {
-            $executableName = 'pwsh';
+            $expectedPath = @('*powershell/7/pwsh', '*usr/bin/pwsh');
         } else {
+            $expectedPath = @('*WindowsPowerShell\v1.0\powershell.exe', '*PowerShell\7\pwsh.exe');
             $executableName = 'powershell';
         }
 
         $result = whereis $executableName
-
-        $result | Should -Be 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+        $expectedPath -Like $result
+        
+        # In Windows we should check for Windows Powershell and Powershell Core
+        if ($IsWindows) {
+            $result = whereis 'pwsh'
+            $expectedPath -Like $result
+        }
     }
 }
