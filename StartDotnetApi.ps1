@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-Write-Host "Starting API`n"
+Write-Output "Starting API`n"
 
 Start-Process `
   -FilePath "powershell.exe" `

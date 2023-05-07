@@ -17,8 +17,8 @@ $exists = (Get-Command wt -ErrorAction SilentlyContinue).Path
 [string]$wtError = "Sometimes the Windows Terminal is installed but the wt.exe is not accessible, so follow this steps: https://stackoverflow.com/a/67888339/12542704`n";
 
 if (-not $exists) {
-    Write-Host "To run this script Windows Terminal must be installed. Download here: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701"
-    Write-Host $wtError;
+    Write-Output "To run this script Windows Terminal must be installed. Download here: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701"
+    Write-Output $wtError;
     return;
 }
 

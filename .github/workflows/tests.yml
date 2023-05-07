@@ -22,10 +22,10 @@ jobs:
 
       - name: Run Pester Tests (pwsh)
         run: |
-          Write-host $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
+          Write-Output $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
           Set-PSRepository psgallery -InstallationPolicy trusted
           Install-Module -Name Pester -Confirm:$false -Force
-          Invoke-Pester -Path "./tests" -EnableExit
+          Invoke-Pester -Path "./tests" -EnableExit -Show All
 
   test-powershell:
     runs-on: windows-latest
@@ -36,7 +36,7 @@ jobs:
       - name: Run Pester Tests (powershell)
         shell: powershell
         run: |
-          Write-host $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
+          Write-Output $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
           Set-PSRepository psgallery -InstallationPolicy trusted
           Install-Module -Name Pester -Confirm:$false -Force
-          Invoke-Pester -Path "./tests"
+          Invoke-Pester -Path "./tests" -Show All

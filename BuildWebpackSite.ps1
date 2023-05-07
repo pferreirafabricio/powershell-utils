@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 $env:NODE_ENV = "production"
 $publishFolder = "Folder/To/Generate/Build"
 
-Write-Host "Building site..."
+Write-Output "Building site..."
 
 $process = Start-Process `
     -FilePath "npm" `
@@ -12,7 +12,7 @@ $process = Start-Process `
 
 $process.WaitForExit();
 
-Write-Host "Build generated at: $publishFolder"
+Write-Output "Build generated at: $publishFolder"
 Invoke-Item -Path $publishFolder
 
 $packageJsonPath = "Path/To/Site/package.json"

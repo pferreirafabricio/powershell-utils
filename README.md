@@ -15,7 +15,7 @@
 
 - [CreateTask.ps1](./CreateTask.ps1) - Create a system task on Windows
 
-- [BackupMongo.ps1](./BackupMongo.ps1) - Make a backup of a MongoDB database
+- [backup-mongo-db](https://github.com/pferreirafabricio/backup-mongo-db) - Make a backup of a MongoDB database
 
 - [WhereIs.ps1](./WhereIs.ps1) - Find the path of the executable
 ```powershell

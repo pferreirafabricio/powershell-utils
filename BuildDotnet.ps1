@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $apiPath = "Path/To/Api"
 $apiPublishPath = "Path/To/Api/bin/Release/netcoreapp3.1/publish"
 
-Write-Host "Building API..."
+Write-Output "Building API..."
 
 $process = Start-Process `
     -FilePath "dotnet" `
@@ -14,11 +14,11 @@ $process = Start-Process `
 $process.WaitForExit();
 
 if (-not ($apiPublishPath | Test-Path)) {
-    Write-Host "Build directory doesn't exist"
+    Write-Output "Build directory doesn't exist"
     return
 }
 
-Write-Host "Build generated at: $apiPublishPath"
+Write-Output "Build generated at: $apiPublishPath"
 
 [string]$deleteFiles = Read-Host "Remove .json, .pdb and .config files? [y/n] (y)"
 
@@ -44,7 +44,7 @@ Get-ChildItem -Path $apiPublishPath | ForEach-Object {
     Remove-Item $_.FullName
 }
 
-Write-Host "Files removed with success"
+Write-Output "Files removed with success"
 # Discomment this line if you want to open the folder with the build files
 # Invoke-Item -Path $apiPublishPath
 

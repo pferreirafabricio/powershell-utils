@@ -9,7 +9,7 @@ $taskName = ""
 $taskDescription = ""
 
 function Show-ErrorMessage([string] $message) {
-  Write-Host -Message $message `
+  Write-Output -Message $message `
     -ForegroundColor Red `
     -BackgroundColor White
 }

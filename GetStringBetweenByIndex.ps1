@@ -11,12 +11,12 @@ $firstIndex = $Value.IndexOf($Start)
 $lastIndex = $Value.LastIndexOf($End)
 
 if ($firstIndex -eq -1) {
-	Write-Host "Start string $Start not found in $Value"
+	Write-Output "Start string $Start not found in $Value"
 	return
 }
 
 if ($lastIndex -eq -1) {
-	Write-Host "End string $End not found in $Value"
+	Write-Output "End string $End not found in $Value"
 	return
 }
 
