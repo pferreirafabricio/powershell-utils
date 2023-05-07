@@ -25,11 +25,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.1.0
+
       - name: Run Pester Tests
-        id: pester
-        uses: zyborg/pester-tests-report@v1
-        with:
-          report_name: TestResults_${{ runner.os }}_${{ matrix.shell }}
-          tests_fail_step: true
-          coverage_report_name: CoverageResults_${{ runner.os }}_${{ matrix.shell }}
-          coverage_gist_badge_label: Code Coverage
+        run: |
+          Write-host $PSVersionTable.PSVersion.Major $PSVersionTable.PSRemotingProtocolVersion.Minor
+          Set-PSRepository psgallery -InstallationPolicy trusted
+          Install-Module -Name Pester -Confirm:$false -Force
+          Invoke-Pester -Path "./tests" -EnableExit
