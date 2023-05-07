@@ -1,7 +1,7 @@
-Describe 'WhereIs' {
+﻿Describe 'WhereIs' {
     It 'Show the correct executable path' {
         . .\WhereIs.ps1
-        
+
         $executableName = '';
         $expectedPath = @();
 
@@ -13,12 +13,12 @@ Describe 'WhereIs' {
             $executableName = 'powershell';
         }
 
-        $result = whereis $executableName
+        $result = RunWhere $executableName
         $expectedPath -Like $result
-        
+
         # In Windows we should check for Windows Powershell and Powershell Core
         if ($IsWindows) {
-            $result = whereis 'pwsh'
+            $result = RunWhere 'pwsh'
             $expectedPath -Like $result
         }
     }

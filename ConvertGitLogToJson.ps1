@@ -1,4 +1,4 @@
-# Credits: https://stackoverflow.com/a/49515414/12542704
+﻿# Credits: https://stackoverflow.com/a/49515414/12542704
 
 param(
     [int]$NumberOfCommits = 10
@@ -24,4 +24,4 @@ $handledLogs = foreach ($commit in $replacedArray) {
 }
 
 $convertedLogs = $handledLogs | ConvertTo-Json -Depth 10
-$convertedLogs | % { Write-Output $_ }
+$convertedLogs | ForEach-Object { Write-Output $_ }

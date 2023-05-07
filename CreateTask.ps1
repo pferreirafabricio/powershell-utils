@@ -1,4 +1,4 @@
-# $scriptToExecutePath = "C:\\backup-mongo.ps1";
+﻿# $scriptToExecutePath = "C:\\backup-mongo.ps1";
 # $taskName = "MongoDB Backup - <databaseName>"
 # $taskDescription = "Make a dump of <databaseName> database"
 
@@ -14,31 +14,31 @@ function Show-ErrorMessage([string] $message) {
     -BackgroundColor White
 }
 
-function Get-TaskInfos {
+function Get-TaskInfo {
   $script:pathScriptToExecute = Read-Host "Please enter the path to the PowerShell script"
   $script:taskName = Read-Host "Please enter the name of the task"
   $script:taskDescription = Read-Host "Please enter the description of the task (optional)"
 
-  Check-Params
+  Check-Param
 }
 
-function Check-Params {
+function Check-Param {
   if ([String]::IsNullOrEmpty($pathScriptToExecute) -or -not ($pathScriptToExecute | Test-Path)  ) {
     Show-ErrorMessage "The script path doesn't exists"
     $script:pathScriptToExecute = Read-Host "Please enter the path to the PowerShell script"
-    Check-Params
+    Check-Param
     return
   }
 
   if ([String]::IsNullOrEmpty($taskName)) {
     Show-ErrorMessage "The name of the task can not be empty"
     $script:taskName = Read-Host "Please enter the username"
-    Check-Params
+    Check-Param
     return;
   }
 }
 
-Get-TaskInfos
+Get-TaskInfo
 
 $taskExists = Get-ScheduledTask | Where-Object { $_.TaskName -like $taskName }
 

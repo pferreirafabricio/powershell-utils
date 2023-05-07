@@ -1,4 +1,4 @@
-<#
+﻿<#
 .DESCRIPTION
     Run an API and a web site inside windows terminal with automtic split
 #>
@@ -26,5 +26,5 @@ try {
     Start-Process wt $executionString -ErrorAction SilentlyContinue
 }
 catch {
-    Write-Error $wtError 
+    Write-Error $wtError
 }

@@ -1,8 +1,8 @@
-param(
+﻿param(
     [Parameter(Mandatory = $true)]
     [string[]]$ArraySet,
     [Parameter(Mandatory = $true)]
     [string]$StringToVerify
 )
 
-return ($ArraySet | % { $StringToVerify.Contains($_) }) -Contains $true
+return ($ArraySet | ForEach-Object { $StringToVerify.Contains($_) }) -Contains $true

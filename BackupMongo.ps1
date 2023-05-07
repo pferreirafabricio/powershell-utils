@@ -1,4 +1,4 @@
-<#  Set the MongoDB access variables  #>
+﻿<#  Set the MongoDB access variables  #>
 param(
   [string]$authenticationDatabase = "admin",
   [string]$mongoDbHost = "localhost:27017",
@@ -18,7 +18,7 @@ function Show-ErrorMessage([string] $message) {
     -BackgroundColor White
 }
 
-function Get-AccessVariables() {
+function Get-AccessVariable() {
   $script:databaseName = Read-Host "Please enter the database name"
 
   [string]$useConnectionString = Read-Host "Use connection string for backup? [y/n] (y)"
@@ -30,7 +30,7 @@ function Get-AccessVariables() {
 
     if ([String]::IsNullOrEmpty($script:uri)) {
       Show-ErrorMessage "Connection string empty"
-      Get-AccessVariables
+      Get-AccessVariable
       return
     }
 
@@ -53,10 +53,10 @@ function Get-AccessVariables() {
     $script:authenticationDatabase = "localhost:27017"
   }
 
-  Verfiy-Params
+  Verfiy-Param
 }
 
-function Verfiy-Params() {
+function Verfiy-Param() {
   if ([String]::IsNullOrEmpty($script:backupPath) -or -not ($script:backupPath | Test-Path)  ) {
     Show-ErrorMessage "The backup's folders doesn't exists, so it will be created"
     New-Item -ItemType Directory -Force -Path $script:backupPath | Out-Null
@@ -74,10 +74,10 @@ function Verfiy-Params() {
     return;
   }
 
-  Get-AccessVariables
+  Get-AccessVariable
 }
 
-Verfiy-Params
+Verfiy-Param
 
 <#  Set the folder's location and name  #>
 $currentDate = Get-Date -format yyyyMMddHHmm
