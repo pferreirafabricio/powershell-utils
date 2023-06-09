@@ -1,6 +1,6 @@
 # Powershell Utilities 
 [![Unit tests](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/tests.yml/badge.svg)](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/tests.yml)
-[![PSScriptAnalyzer](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/script-analyzer.yml/badge.svg)](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/script-analyzer.yml)
+[![Linting](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/linting.yml/badge.svg)](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/linting.yml)
 
 ## 🐍 Scripts
 - [Time.ps1](./Time.ps1) - Short function that works like time on Unix <br/>
