@@ -1,4 +1,4 @@
-﻿<#
+<#
 .DESCRIPTION
     Run an API and a web site inside windows terminal with automtic split
 #>
@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop';
 
 [string]$executionString = ""
 $runApi = 'new-tab --title "API" -d "./Example/Api" -p "Windows PowerShell" powershell -noexit "dotnet watch run"'
-$runSite = 'split-pane --title "Site" --horizontal -d "./Example/Site" -p "Windows PowerShell" powershell -noexit "npm run serve"'
+$runSite = 'split-pane --title "Site" --vertical -d "./Example/Site" -p "Windows PowerShell" powershell -noexit "npm run serve"'
 
 $executionString = "$runApi; $runSite"
 
