@@ -66,3 +66,5 @@ True
 - [BuildDotnet.ps1](./BuildDotnet.ps1) - Build a Dotnet API
 
 - [BuildWebpackSite.ps1](./BuildWebpackSite.ps1) - Build a Webpack project (like Vue or React)
+
+- [RemoveMergedBranches.ps1](./RemoveMergedBranches.ps1) - Remove all merged branches in a git repository (this script only remove merged branches and do not use the -D flag)
