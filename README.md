@@ -20,7 +20,7 @@
 - [WhereIs.ps1](./WhereIs.ps1) - Find the path of the executable
 ```powershell
 # Example: 
-> ./WhereIs.ps1 # execute the script
+> ./WhereIs.ps1 # Execute the script
 > whereis php
 C:\tools\php74\php.exe
 ```
@@ -50,7 +50,7 @@ ello Wor
 ]
 ``` 
 
-- [GetIfStringIsInArray.ps1](./GetIfStringIsInArray.ps1) - Verify if the string contains any other strings presents in the array
+- [GetIfStringIsInArray.ps1](./GetIfStringIsInArray.ps1) - Verify if the string contains any other strings present in the array
 ```powershell
 # Example: 
 > ./GetIfStringIsInArray.ps1 -ArraySet @('work', 'paper') -StringToVerify "I work in a paper company"
@@ -67,4 +67,6 @@ True
 
 - [BuildWebpackSite.ps1](./BuildWebpackSite.ps1) - Build a Webpack project (like Vue or React)
 
-- [RemoveMergedBranches.ps1](./RemoveMergedBranches.ps1) - Remove all merged branches in a git repository (this script only remove merged branches and do not use the -D flag)
+- [RemoveMergedBranches.ps1](./RemoveMergedBranches.ps1) - Remove all merged branches in a git repository (this script only removes merged branches and does not use the -D flag)
+
+- [PreviousCommands.ps1](./PreviousCommands.ps1) - Returns a list of the previous commands (by default it'll return the last 20 commands)
