@@ -70,3 +70,7 @@ True
 - [RemoveMergedBranches.ps1](./RemoveMergedBranches.ps1) - Remove all merged branches in a git repository (this script only removes merged branches and does not use the -D flag)
 
 - [PreviousCommands.ps1](./PreviousCommands.ps1) - Returns a list of the previous commands (by default it'll return the last 20 commands)
+
+## 🎹 Commands
+
+- [SetClipboardWithPath.ps1](./SetClipboardWithPath.ps1) - Short version to get the current path into your clipboard
