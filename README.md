@@ -2,6 +2,36 @@
 [![Unit tests](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/tests.yml/badge.svg)](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/tests.yml)
 [![Linting](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/linting.yml/badge.svg)](https://github.com/pferreirafabricio/powershell-utils/actions/workflows/linting.yml)
 
+## Adding it to the PowerShell profile
+
+You can add these scripts to your PowerShell profile to make them easier for use.
+
+> [!NOTE]
+> Note that for PowerShell Core and PowerShell Windows, there are different profile files
+
+Example:
+
+```powershell
+# open the configuration file for your PowerShell
+
+> code $profile
+```
+
+```powershell
+# inside Microsoft.Powershell_profile.ps1 file
+
+function RunWhere($command) {
+    (Get-Command $command).Path
+}
+
+Set-Alias -Name "whereis" -Value RunWhere
+```
+
+> [!NOTE]
+> To learn more about how you can configure your powershell profiles, take a look at [about_Profiles](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)
+
+
+
 ## 🐍 Scripts
 - [Time.ps1](./Time.ps1) - Short function that works like time on Unix <br/>
 ```powershell
